@@ -1,0 +1,38 @@
+<div *ngIf="hero">
+  <mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>
+      <h2>Hero Details</h2>
+    </mat-card-title>
+    <mat-card-subtitle><h3>{{ hero.name | uppercase }}</h3></mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Score: {{hero.score}} <br>
+       Type hero: {{hero.type | uppercase}} <br>
+       Date create: {{hero.date | uppercase}} <br>
+    </p>
+    <div>
+      <label>Name:
+        <mat-form-field class="input" >
+          <input matInput  [(ngModel)]="hero.name" >
+        </mat-form-field>
+      </label>
+    </div>
+    <div >
+      <mat-form-field >
+        <label> Color:
+          <mat-select #selectedColor  [(ngModel)]="hero.color">
+            <mat-option *ngFor="let color of colors" [value]="color.name">
+              {{ color.name }}
+            </mat-option>
+          </mat-select>
+        </label>
+    </mat-form-field>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="goBack()">go back</button>
+    <button mat-raised-button color="warn" (click)="save(selectedColor.value)">save</button>
+  </mat-card-actions>
+</mat-card>
+</div>

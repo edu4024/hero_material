@@ -1,0 +1,31 @@
+<h2>My Heroes</h2>
+
+<div>
+  <label>Hero name:
+    <input matInput  #heroName placeholder="Super Man"  />
+  </label>
+  <mat-form-field class="list">
+    <mat-select placeholder="choice type of hero" #selectedType>
+      <mat-option *ngFor="let type of types" [value]='type.name'>
+        {{ type.name | uppercase }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button mat-raised-button color="warn" (click)="add(heroName.value, selectedType.value ); heroName.value=''">
+    add
+  </button>
+</div>
+<br>
+
+<ul class="heroes" >
+  <li *ngFor="let hero of heroes" >
+    <a routerLink="/detail/{{hero._id}}" >
+      <span class="badge">{{hero.score}}</span> {{hero.name}}
+    </a>
+    <button class="delete" title="delete hero"
+    (click)="delete(hero)">x</button>
+  </li>
+</ul>
+
+<!-- [style.color]='[{hero.color}]' -->
