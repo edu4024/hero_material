@@ -21,11 +21,9 @@
 <ul class="heroes" >
   <li *ngFor="let hero of heroes" >
     <a routerLink="/detail/{{hero._id}}" >
-      <span class="badge">{{hero.score}}</span> {{hero.name}}
+      <span class="badge">{{hero.score}}</span> <span [style.color]="hero.color">{{hero.name}}</span> 
     </a>
     <button class="delete" title="delete hero"
     (click)="delete(hero)">x</button>
   </li>
 </ul>
-
-<!-- [style.color]='[{hero.color}]' -->

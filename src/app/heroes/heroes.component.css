@@ -22,7 +22,7 @@
 }
 
 .heroes a {
-  color: #888;
+  /* color: #888; */
   text-decoration: none;
   position: relative;
   display: block;
