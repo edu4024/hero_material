@@ -16,7 +16,7 @@ import { DataSource } from '@angular/cdk/collections';
 export class MainPageComponent implements OnInit {
     @ViewChild(MatSort) sort: MatSort;
     dataSource;
-    displayedColumns=['score','name','type','color','date'];
+    displayedColumns=['score','name','type','color','date','button'];
 
  constructor(private heroService: HeroService) {
 

@@ -53,7 +53,7 @@ router.post('/heroes', function(req,res){
   };
   let originalHero={
     name:req.body.name,
-    score:Math.floor(Math.random()*100),
+    score:req.body.score,
     type:req.body.type,
     color:'black',
     date:date.toLocaleString('ru', options)
@@ -115,7 +115,7 @@ router.put('/heroes/:id', function(req,res){
         .updateOne(
           { _id:ObjectID(req.params.id) },
           { name:req.body.name,
-            score:Math.floor(Math.random()*100),
+            score:req.body.score,
             type:req.body.type,
             color:req.body.color,
             date:date.toLocaleString('ru', options)},

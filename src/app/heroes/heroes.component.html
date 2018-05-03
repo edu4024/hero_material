@@ -1,8 +1,11 @@
-<h2>My Heroes</h2>
+<h2>Create your own Hero!</h2>
 
 <div>
   <label>Hero name:
     <input matInput  #heroName placeholder="Super Man"  />
+  </label>
+  <label>Hero score:
+    <input matInput  #heroScore placeholder="100"  />
   </label>
   <mat-form-field class="list">
     <mat-select placeholder="choice type of hero" #selectedType>
@@ -11,19 +14,19 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button mat-raised-button color="warn" (click)="add(heroName.value, selectedType.value ); heroName.value=''">
+  <button mat-raised-button color="warn" (click)="add(heroName.value, selectedType.value, heroScore.value ); heroName.value=''">
     add
   </button>
 </div>
 <br>
 
+<h2>My Heroes</h2>
+
 <ul class="heroes" >
   <li *ngFor="let hero of heroes" >
     <a routerLink="/detail/{{hero._id}}" >
-      <span class="badge">{{hero.score}}</span> <span [style.color]="hero.color">{{hero.name}}</span> 
+      <span class="badge">{{hero.score}}</span> <span [style.color]="hero.color">{{hero.name}}</span>
     </a>
-    <button class="delete" title="delete hero"
-    (click)="delete(hero)">x</button>
+    <button class="delete" title="delete hero" (click)="delete(hero)">x</button>
   </li>
 </ul>

@@ -20,7 +20,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
-
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { FormControl } from "@angular/forms";
 
@@ -30,6 +30,7 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroService } from './hero.service';
+import { ModalWindowComponent } from './modal-window/modal-window.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { HeroService } from './hero.service';
     MainPageComponent,
     HeroDetailComponent,
     HeroSearchComponent,
-    HeroesComponent
+    HeroesComponent,
+    ModalWindowComponent
   ],
   imports: [
     BrowserModule,
@@ -59,11 +61,13 @@ import { HeroService } from './hero.service';
     MatSortModule,
     MatCardModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatDialogModule
   ],
   providers: [
     HeroService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[ModalWindowComponent, HeroesComponent]
 })
 export class AppModule { }

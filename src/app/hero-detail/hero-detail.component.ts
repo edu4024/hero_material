@@ -41,9 +41,9 @@ export class HeroDetailComponent implements OnInit {
 
 
 
-   save(color:string): void {
+   save(): void {
      this.editHero=undefined;
-     color=color.trim();
+     
     // const update:Hero={name, type, color,score,_id, date}
      if(this.hero){
       this.heroService.updateHero(this.hero)
